@@ -11,7 +11,9 @@
   "dependencies": {
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.3"
+    "next": "14.2.3",
+    "thirdweb": "5.0.1"
+
   },
   "devDependencies": {
     "typescript": "^5",
