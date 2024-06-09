@@ -6,9 +6,9 @@ export const client = createThirdwebClient({
     clientId: CLIENT_ID as string,
 });
 
-export const chain = defineChain(80085);
+export const chain = defineChain(84532);
 
-const contractAddress = '0xB1af74462534c3b082D0c80D6c4F141c6Fb56aDf'
+const contractAddress = '0xD2F1520d4ca25f6F3214D0A74CfaB6A67d0F39C2'
 const contracABI = [
     {
       "type": "function",
