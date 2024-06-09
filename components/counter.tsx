@@ -5,7 +5,7 @@ import { prepareContractCall } from "thirdweb";
 
 
 const Counter: React.FC = () => {
-    const {data: count, isLoading: loadingCount} = useReadContract({
+    const {data: count, isLoading: loadingCount, refetch} = useReadContract({
         contract: CONTRACT,
         method: "getCount"
     });
@@ -27,12 +27,18 @@ const Counter: React.FC = () => {
                     transaction={() => prepareContractCall({
                         contract: CONTRACT,
                         method: "decrement"
-                    })}>-</TransactionButton>
+                    })} 
+                    onTransactionSent={() => console.log("....decrementing.....")}
+                    onTransactionConfirmed={() => refetch()}
+                    >-</TransactionButton>
                 <TransactionButton
                     transaction={() => prepareContractCall({
                         contract: CONTRACT,
                         method: "increment"
-                    })}>+</TransactionButton>
+                    })}
+                    onTransactionSent={() => console.log("....incrementing.....")}
+                    onTransactionConfirmed={() => refetch()}
+                    >+</TransactionButton>
             </div>
         </div>
     )
