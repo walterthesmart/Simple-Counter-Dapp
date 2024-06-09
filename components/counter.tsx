@@ -1,5 +1,6 @@
-import { useReadContract } from "thirdweb/react";
+import { useReadContract, TransactionButton } from "thirdweb/react";
 import {CONTRACT} from "../utils/constants";
+import { prepareContractCall } from "thirdweb";
 
 
 
@@ -16,6 +17,23 @@ const Counter: React.FC = () => {
             ) : (
                 <h2>{count ?.toString()}</h2>
             )}
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                gap: "10px",
+                marginTop: '10px'
+            }}>
+                <TransactionButton
+                    transaction={() => prepareContractCall({
+                        contract: CONTRACT,
+                        method: "decrement"
+                    })}>-</TransactionButton>
+                <TransactionButton
+                    transaction={() => prepareContractCall({
+                        contract: CONTRACT,
+                        method: "increment"
+                    })}>+</TransactionButton>
+            </div>
         </div>
     )
 }
